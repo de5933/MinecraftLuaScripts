@@ -116,7 +116,7 @@ function downloadManager( path )
     for i, data in pairs(fType) do
         if data == "dir" then
             local path = "downloads/"..gRepo.."/"..fPath[i]
-            if gPath ~= "" then path = gPath.."/"..gRepo.."/"..fPath[i] end
+            if gPath ~= "" then path = gPath.."/"..fPath[i] end
             if not fileList.dirs[path] then 
                 writeCenter("Listing directory: "..fName[i])
                 fileList.dirs[path] = {"https://raw.github.com/"..gUser.."/"..gRepo.."/"..gBranch.."/"..fPath[i],fName[i]}
