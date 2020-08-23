@@ -99,15 +99,14 @@ end
 -- Download Manager
 function downloadManager( path )
     local fType, fPath, fName = getGithubContents( path )
-    for i,data in pairs(fType) do
+    for i, data in pairs(fType) do
         if data == "file" then
             checkPath = http.get("https://raw.github.com/"..gUser.."/"..gRepo.."/"..gBranch.."/"..fPath[i])
             if checkPath == nil then
-                
                 fPath[i] = fPath[i].."/"..fName[i]
             end
-            local path = "downloads/"..gRepo.."/"..fPath[i]
-            if gPath ~= "" then path = gPath.."/"..fPath[i] end
+            local path = fPath[i]
+            if gPath ~= "" then path = gPath.."/"..gRepo.."/"..fPath[i] end
             if not fileList.files[path] and not isBlackListed(fPath[i]) then
                 fileList.files[path] = {"https://raw.github.com/"..gUser.."/"..gRepo.."/"..gBranch.."/"..fPath[i],fName[i]}
             end
@@ -115,8 +114,8 @@ function downloadManager( path )
     end
     for i, data in pairs(fType) do
         if data == "dir" then
-            local path = "downloads/"..gRepo.."/"..fPath[i]
-            if gPath ~= "" then path = gPath.."/"..fPath[i] end
+            local path = fPath[i]
+            if gPath ~= "" then path = gPath.."/"..gRepo.."/"..fPath[i] end
             if not fileList.dirs[path] then 
                 writeCenter("Listing directory: "..fName[i])
                 fileList.dirs[path] = {"https://raw.github.com/"..gUser.."/"..gRepo.."/"..gBranch.."/"..fPath[i],fName[i]}
