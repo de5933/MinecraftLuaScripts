@@ -1,1 +1,1 @@
-commands.exec('/repo/githubDownloader.lua de5933 MinecraftLuaScripts /repo')
+commands.exec('/git de5933 MinecraftLuaScripts /repo')
