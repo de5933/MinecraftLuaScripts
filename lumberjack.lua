@@ -7,4 +7,4 @@ function isSapling()
 	return nil
 end
 
-isSapling()
+print(isSapling())
