@@ -1,1 +1,1 @@
-commands.exec('/git de5933 MinecraftLuaScripts /repo')
+shell.run('git', 'de5933', 'MinecraftLuaScripts', '/repo')
