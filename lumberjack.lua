@@ -129,7 +129,7 @@ end
 while true do
 	if isEmpty() then
 		plantTree()
-	elseif isLog then
+	elseif isLog() then
 		refuel()
 		chopTree()
 		depositWood()
