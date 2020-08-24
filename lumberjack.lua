@@ -32,6 +32,12 @@ function findItem(name)
 	return nil
 end
 
-print(isSapling())
-print(isLog())
-print(isEmpty())
+function plantTree()
+	local tmpIndex = turtle.getSelectedSlot()
+	local index = findItem(SAPLING)
+	turtle.select(index)
+	turtle.place()
+	turtle.select(tmpIndex)
+end
+
+plantTree()
