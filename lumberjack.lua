@@ -98,6 +98,7 @@ function chopTree2()
 	while not turtle.detectDown() do
 		turtle.down()
 	end
+	turtle.back()
 end
 
 function depositWood()
