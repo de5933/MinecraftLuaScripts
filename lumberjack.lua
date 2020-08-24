@@ -95,7 +95,7 @@ function chopTree2()
 		turtle.up()
 	end
 	print('Climb down')
-	while turtle.detectDown() do
+	while not turtle.detectDown() do
 		turtle.down()
 	end
 end
