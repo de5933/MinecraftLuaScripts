@@ -28,20 +28,28 @@ function findItem(name)
 		local data = turtle.getItemDetail(i)
 		if data ~= nil and data.name == name then
 			return i
+		else
+			print('Could not find item: ' + name)
 		end
 	end
 	return nil
 end
 
 function plantTree()
+	print('Planting tree')
 	local tmpIndex = turtle.getSelectedSlot()
 	local index = findItem(SAPLING)
+	if not index then
+		print('No saplings to plant. :(')
+		return
+	end
 	turtle.select(index)
 	turtle.place()
 	turtle.select(tmpIndex)
 end
 
 function chopTree()
+	print('Chopping tree')
 	local y = 0
 
 	while isLog() do
@@ -77,9 +85,11 @@ function depositWood()
 		local data = turtle.getItemDetail(i)
 		if data and data.name == LOG then
 			if foundFuel then
+				print('Depositing logs')
 				turtle.select(i)
 				turtle.dropDown()
 			else
+				print('Setting aside logs for fuel')
 				foundFuel = true
 			end
 		end
@@ -92,16 +102,21 @@ function refuel()
 		return
 	end
 
+	print('Refueling...')
 	local tmpIndex = turtle.getSelectedSlot()
 	local index = findItem(LOG)
 	if index then
 		turtle.select(index)
 		turtle.refuel(1)
+		print('Refueling successful')
+	else
+		print('Could not find fuel')
 	end
 	turtle.select(tmpIndex)
 end
 
 function gatherDrops()
+	print('Gathering dropped saplings')
 	turtle.suck()
 	turtle.turnRight()
 	turtle.suck()
