@@ -134,9 +134,8 @@ while true do
 		chopTree()
 		depositWood()
 		plantTree()
-	else
-		gatherDrops()
 	end
+	gatherDrops()
 
 	os.sleep(1)
 end
