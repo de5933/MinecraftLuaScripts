@@ -10,9 +10,10 @@ end
 function find(name)
 	for i = 1, 16 do
 		local data = turtle.getItemDetail(i)
-		if data.name == name then
-			return i
-		end
+		print(data.name)
+		--if data.name == name then
+		--	return i
+		--end
 	end
 	return nil
 end
