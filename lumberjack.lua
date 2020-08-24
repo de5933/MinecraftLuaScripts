@@ -72,11 +72,16 @@ end
 
 function depositWood()
 	local tmpIndex = turtle.getSelectedSlot()
+	local foundFuel = false
 	for i = 1, SLOTCOUNT do
 		local data = turtle.getItemDetail(i)
-		if data.name == LOG then
-			turtle.select(i)
-			turtle.dropDown()
+		if data and data.name == LOG then
+			if foundFuel then
+				turtle.select(i)
+				turtle.dropDown()
+			else
+				foundFuel = true
+			end
 		end
 	end
 	turtle.select(tmpIndex)
