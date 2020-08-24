@@ -82,10 +82,25 @@ function depositWood()
 	turtle.select(tmpIndex)
 end
 
+function refuel()
+	if turtle.getFuelLevel() > 16 then
+		return
+	end
+
+	local tmpIndex = turtle.getSelectedSlot()
+	local index = findItem(LOG)
+	if index then
+		turtle.select(index)
+		turtle.refuel(1)
+	end
+	turtle.select(tmpIndex)
+end
+
 while true do
 	if isEmpty() then
 		plantTree()
 	elseif isLog then
+		refuel()
 		chopTree()
 		plantTree()
 	end
