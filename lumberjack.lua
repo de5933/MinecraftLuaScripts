@@ -1,7 +1,10 @@
-function checkGrowth()
+
+function isSapling()
 	local success, data = turtle.inspect()
-	print("Block name: ", data.name)
-	print("Block metadata: ", data.metadata)
+	if (success)
+		return data.metadata == 'minecraft:sapling'
+	end
+	return nil
 end
 
-checkGrowth()
+isSapling()
