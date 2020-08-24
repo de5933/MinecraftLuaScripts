@@ -77,6 +77,26 @@ function chopTree()
 
 end
 
+function chopTree2()
+	print('Chopping tree mk2')
+	turtle.dig()
+	turtle.forward()
+	while turtle.detectUp() do
+		turtle.dig()
+		turtle.turnRight()
+		turtle.dig()
+		turtle.turnRight()
+		turtle.dig()
+		turtle.turnRight()
+		turtle.dig()
+		turtle.turnRight()
+		turtle.digUp()
+	end
+	while turtle.detectDown() do
+		turtle.down()
+	end
+end
+
 function depositWood()
 	local tmpIndex = turtle.getSelectedSlot()
 	local foundFuel = false
@@ -131,7 +151,7 @@ while true do
 		plantTree()
 	elseif isLog() then
 		refuel()
-		chopTree()
+		chopTree2()
 		depositWood()
 		plantTree()
 	end
