@@ -81,6 +81,7 @@ function chopTree2()
 	print('Chopping tree mk2')
 	turtle.dig()
 	turtle.forward()
+	print('Climbing up')
 	while turtle.detectUp() do
 		turtle.dig()
 		turtle.turnRight()
@@ -93,6 +94,7 @@ function chopTree2()
 		turtle.digUp()
 		turtle.up()
 	end
+	print('Climb down')
 	while turtle.detectDown() do
 		turtle.down()
 	end
