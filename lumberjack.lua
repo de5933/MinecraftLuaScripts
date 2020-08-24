@@ -70,7 +70,7 @@ function chopTree()
 end
 
 while true do
-	if isEmpty then
+	if isEmpty() then
 		plantTree()
 	else if isLog then
 		chopTree()
