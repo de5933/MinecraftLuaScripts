@@ -102,6 +102,7 @@ while true do
 	elseif isLog then
 		refuel()
 		chopTree()
+		depositWood()
 		plantTree()
 	end
 
