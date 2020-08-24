@@ -91,6 +91,7 @@ function chopTree2()
 		turtle.dig()
 		turtle.turnRight()
 		turtle.digUp()
+		turtle.up()
 	end
 	while turtle.detectDown() do
 		turtle.down()
