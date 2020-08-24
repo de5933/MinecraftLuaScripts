@@ -1,7 +1,7 @@
 
 function isSapling()
 	local success, data = turtle.inspect()
-	if (success)
+	if (success) then
 		return data.metadata == 'minecraft:sapling'
 	end
 	return nil
