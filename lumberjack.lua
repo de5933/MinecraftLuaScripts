@@ -40,4 +40,23 @@ function plantTree()
 	turtle.select(tmpIndex)
 end
 
-plantTree()
+function chopTree()
+	local y = 0
+	
+	while isLog() do
+		turtle.dig()
+		if turtle.detectUp() then
+			turtle.digUp()
+		end
+		if turtle.up() then
+			y = y + 1
+		end
+	end
+
+	while y > 0 do
+		if turtle.down() then
+			y = y - 1
+		end
+	end
+
+end
