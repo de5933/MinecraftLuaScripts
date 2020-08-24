@@ -19,7 +19,7 @@ end
 
 function isEmpty()
 	local success, data = turtle.inspect()
-	return ~success
+	return success == false
 end
 
 function findItem(name)
