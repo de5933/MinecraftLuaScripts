@@ -42,21 +42,31 @@ end
 
 function chopTree()
 	local y = 0
-	
+
 	while isLog() do
-		turtle.dig()
+		if ~turtle.dig() then
+			print('Trying to dig...')
+		end
+
 		if turtle.detectUp() then
 			turtle.digUp()
 		end
+		
 		if turtle.up() then
 			y = y + 1
+		else
+			print('Trying to move up...')
 		end
 	end
 
 	while y > 0 do
 		if turtle.down() then
 			y = y - 1
+		else
+			print('Trying to move down...')
 		end
 	end
 
 end
+
+chopTree()
