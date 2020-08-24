@@ -72,7 +72,7 @@ end
 
 function depositWood()
 	local tmpIndex = turtle.getSelectedSlot()
-	for i = 0, SLOTCOUNT do
+	for i = 1, SLOTCOUNT do
 		local data = turtle.getItemDetail(i)
 		if data.name == LOG then
 			turtle.select(i)
