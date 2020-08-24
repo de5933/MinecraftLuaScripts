@@ -69,4 +69,13 @@ function chopTree()
 
 end
 
-chopTree()
+while true do
+	if isEmpty then
+		plantTree()
+	else if isLog then
+		chopTree()
+		plantTree()
+	end
+
+	os.sleep(1)
+end
