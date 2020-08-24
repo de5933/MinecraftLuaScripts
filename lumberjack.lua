@@ -19,8 +19,7 @@ function isLog()
 end
 
 function isEmpty()
-	local success, data = turtle.inspect()
-	return success == false
+	return not turtle.detect()
 end
 
 function findItem(name)
