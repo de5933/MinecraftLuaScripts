@@ -1,5 +1,6 @@
 SAPLING = 'minecraft:sapling'
 LOG = 'minecraft:log'
+SLOTCOUNT = 16
 
 function isSapling()
 	local success, data = turtle.inspect()
@@ -23,7 +24,7 @@ function isEmpty()
 end
 
 function findItem(name)
-	for i = 1, 16 do
+	for i = 1, SLOTCOUNT do
 		local data = turtle.getItemDetail(i)
 		if data ~= nil and data.name == name then
 			return i
@@ -67,6 +68,18 @@ function chopTree()
 		end
 	end
 
+end
+
+function depositWood()
+	local tmpIndex = turtle.getSelectedSlot()
+	for i = 0, SLOTCOUNT do
+		local data = turtle.getItemDetail(i)
+		if data.name == LOG then
+			turtle.select(i)
+			turtle.dropDown()
+		end
+	end
+	turtle.select(tmpIndex)
 end
 
 while true do
