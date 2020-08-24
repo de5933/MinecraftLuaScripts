@@ -44,7 +44,7 @@ function chopTree()
 	local y = 0
 
 	while isLog() do
-		if ~turtle.dig() then
+		if not turtle.dig() then
 			print('Trying to dig...')
 		end
 
