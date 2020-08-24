@@ -10,6 +10,7 @@ end
 function find(name)
 	for i = 1, 16 do
 		local id, count, dmg = turtle.getItemDetail(i)
+		print(i + ']: ' + id)
 		if id == name then
 			return i
 		end
