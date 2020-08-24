@@ -29,7 +29,7 @@ function findItem(name)
 		if data ~= nil and data.name == name then
 			return i
 		else
-			print('Could not find item: ' + name)
+			print('Could not find item: ', name)
 		end
 	end
 	return nil
