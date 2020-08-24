@@ -101,6 +101,17 @@ function refuel()
 	turtle.select(tmpIndex)
 end
 
+function gatherDrops()
+	turtle.suck()
+	turtle.turnRight()
+	turtle.suck()
+	turtle.turnRight()
+	turtle.suck()
+	turtle.turnRight()
+	turtle.suck()
+	turtle.turnRight()
+end
+
 while true do
 	if isEmpty() then
 		plantTree()
@@ -109,6 +120,8 @@ while true do
 		chopTree()
 		depositWood()
 		plantTree()
+	else
+		gatherDrops()
 	end
 
 	os.sleep(1)
