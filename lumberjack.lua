@@ -72,7 +72,7 @@ end
 while true do
 	if isEmpty() then
 		plantTree()
-	else if isLog then
+	elseif isLog then
 		chopTree()
 		plantTree()
 	end
