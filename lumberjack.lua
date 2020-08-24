@@ -7,4 +7,14 @@ function isSapling()
 	return nil
 end
 
-print(isSapling())
+function find(name)
+	for i = 1, 16 do
+		local id, count, dmg = turtle.getItemDetail(i)
+		if id == name then
+			return i
+		end
+	end
+	return nil
+end
+
+print(find('minecraft:sapling'))
