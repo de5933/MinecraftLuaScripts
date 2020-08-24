@@ -6,7 +6,7 @@ function isSapling()
 	if (success) then
 		return data.name == SAPLING
 	end
-	return nil
+	return false
 end
 
 function isLog()
@@ -14,7 +14,7 @@ function isLog()
 	if (success) then
 		return data.name == LOG
 	end
-	return nil
+	return false
 end
 
 function isEmpty()
