@@ -1,4 +1,4 @@
--- Farm.lua v0.3
+-- Farm.lua v0.4
 -- Turtle starts on block to the right of the back, rightmost block in the field
 -- Turtle must be one block above the farmland
 -- The field area must be walled off at the turtle's level
@@ -93,7 +93,7 @@ function isCrop(itemData)
 end
 
 function farmTile()
-	local tile = detectDown()
+	local tile = turtle.detectDown()
 
 	if isRipe(tile) then
 		-- Harvest
