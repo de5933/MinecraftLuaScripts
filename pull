@@ -1,1 +1,3 @@
-shell.run('git', 'de5933', 'MinecraftLuaScripts', '/repo')
+shell.run('rm', '/repo')
+shell.run('git', 'de5933', 'MinecraftLuaScripts')
+shell.run('cp', '/downloads/MinecraftLuaScripts', '/repo')

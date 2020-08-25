@@ -137,7 +137,7 @@ function deposit()
 end
 
 while true do
-	local distance = iterateField()
+	local distance = iterateField(farmTile)
 	print('End of field. Returning home.')
 	distance = distance + goHome();
 
