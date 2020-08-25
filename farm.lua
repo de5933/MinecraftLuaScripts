@@ -44,7 +44,7 @@ end
 function retreat()
 	turtle.turnRight()
 	turtle.turnRight()
-	
+
 	while not turtle.detect() do
 		turtle.forward()
 	end
@@ -92,13 +92,13 @@ end
 ​
 function farmTile()
 	local tile = detectDown()
-		
+
 	if isRipe(tile) then
 		-- Harvest
 		print('Harvesting ', tile.name)
 		turtle.digDown()
 	end
-	
+
 	if tile == nil then
 		-- Plough
 		print('Ploughing ', tile.name)
@@ -110,7 +110,7 @@ function farmTile()
 		else
 			turtle.select(index)
 			print('Planting ', seed.name)
-			if not turtle.placeDown() then 
+			if not turtle.placeDown() then
 				print('Planting failed')
 			end
 		end
@@ -124,15 +124,21 @@ function deposit()
 	-- Drop the remaining items
 	-- Crops go in forward chest
 	-- Seeds go in bottom chest
-	
+
 	-- MVP: Drop all items
+	for i = 0, 16 do
+		local item = turtle.getItemDetail(i)
+		if isSeed(item) or isCrop(item) then
+			turtle.select(i)
+			turtle.dropDown()
+		end
 end
 ​
 while true do
 	local distance = iterateField()
 	print('End of field. Returning home.')
 	distance = distance + goHome();
-	
+
 	deposit()
 	turtle.suckUp()
 	tryRefuel()
