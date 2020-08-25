@@ -1,4 +1,4 @@
--- Farm.lua v0.1
+-- Farm.lua v0.2
 -- Turtle starts on block to the right of the back, rightmost block in the field
 -- Turtle must be one block above the farmland
 -- The field area must be walled off at the turtle's level
@@ -56,7 +56,9 @@ end
 function findItem(predicate)
 	for i = 1, 16 do
 		local item = turtle.getItemDetail(i)
-		if predicate(item) then return item, i
+		if predicate(item) then 
+			return item, i
+		end
 	end
 	return nil
 end
