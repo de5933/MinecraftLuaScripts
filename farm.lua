@@ -1,4 +1,4 @@
--- Farm.lua v0.2
+-- Farm.lua v0.3
 -- Turtle starts on block to the right of the back, rightmost block in the field
 -- Turtle must be one block above the farmland
 -- The field area must be walled off at the turtle's level
@@ -22,7 +22,7 @@ function iterateField(fn)
 
 	repeat
 		turtle.forward()
-		turtle.right()
+		turtle.turnRight()
 
 		-- Go to the end of the field
 		while not turtle.detect() do
