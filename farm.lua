@@ -10,14 +10,14 @@ WHEAT = 'minecraft:wheat'
 CARROT = 'minecraft:carrots'
 POTATO = 'minecraft:potatoes'
 
-WHEATSEED = 'minecraft:wheat_seeds'​
+WHEATSEED = 'minecraft:wheat_seeds'
 
 -- Moves turtle left, right, and forward
 -- Movement stops upon reaching a block in the direction of movement
 -- The specified function is evaluated before each movement
 function iterateField(fn)
 	local count = 0;
-​
+
 	turtle.turnLeft()
 
 	do
@@ -60,13 +60,13 @@ function findItem(predicate)
 	end
 	return nil
 end
-​
+
 function tryRefuel(targetLevel)
 	if turtle.getFuelLevel() < targetLevel then
 		turtle.refuel()
 	end
 end
-​
+
 function isRipe(blockData)
 	if not blockData then
 		return false
@@ -77,19 +77,19 @@ function isRipe(blockData)
 
 	return (name == WHEAT or name == CARROT or name == POTATO) and age >= 7
 end
-​
+
 function isSeed(itemData)
 	return itemData.name == WHEATSEED
 		or itemData.name == CARROT
 		or itemData.name == POTATO
 end
-​
+
 function isCrop(itemData)
 	return itemData.name == WHEAT
 		or itemData.name == CARROT
 		or itemData.name == POTATO
 end
-​
+
 function farmTile()
 	local tile = detectDown()
 
@@ -116,8 +116,7 @@ function farmTile()
 		end
 	end
 end
-​
-​
+
 function deposit()
 	print('Dropping off harvested crops')
 	-- Set aside 1 stack of each seed
@@ -133,7 +132,7 @@ function deposit()
 			turtle.dropDown()
 		end
 end
-​
+
 while true do
 	local distance = iterateField()
 	print('End of field. Returning home.')
