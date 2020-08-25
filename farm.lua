@@ -20,7 +20,7 @@ function iterateField(fn)
 
 	turtle.turnLeft()
 
-	do
+	repeat
 		turtle.forward()
 		turtle.right()
 
