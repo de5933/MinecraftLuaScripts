@@ -1,4 +1,4 @@
--- Farm.lua
+-- Farm.lua v0.1
 -- Turtle starts on block to the right of the back, rightmost block in the field
 -- Turtle must be one block above the farmland
 -- The field area must be walled off at the turtle's level
@@ -131,6 +131,7 @@ function deposit()
 			turtle.select(i)
 			turtle.dropDown()
 		end
+	end
 end
 
 while true do
