@@ -1,4 +1,4 @@
--- Farm.lua v0.4
+-- Farm.lua v0.5
 -- Turtle starts on block to the right of the back, rightmost block in the field
 -- Turtle must be one block above the farmland
 -- The field area must be walled off at the turtle's level
@@ -20,34 +20,45 @@ function iterateField(fn)
 
 	turtle.turnLeft()
 
+	print('Heading out')
+
 	repeat
 		turtle.forward()
+		fn()
 		turtle.turnRight()
 
 		-- Go to the end of the field
+		print('Processing strip')
 		while not turtle.detect() do
-			turtle.forward()
+			if (turtle.forward()) then
+				count = count + 1
+			end
 			fn()
-			count = count + 1
 		end
 
-		retreat()
+		count = count + retreat()
 		turtle.turnRight()
 	until turtle.detect()
 
 	-- Return home
-	retreat()
+	count = count + retreat()
+	turtle.turnLeft()
 
 	return count
 end
 
 function retreat()
+	print('Retreating')
+	local count = 0;
 	turtle.turnRight()
 	turtle.turnRight()
 
 	while not turtle.detect() do
-		turtle.forward()
+		if (turtle.forward()) then
+			count = count + 1
+		end
 	end
+	return count
 end
 
 -- Search the inventory for an item
@@ -81,27 +92,36 @@ function isRipe(blockData)
 end
 
 function isSeed(itemData)
+	if not itemData then
+		return false
+	end
+
 	return itemData.name == WHEATSEED
 		or itemData.name == CARROT
 		or itemData.name == POTATO
 end
 
 function isCrop(itemData)
+	if not itemData then
+		return false
+	end
+	
 	return itemData.name == WHEAT
 		or itemData.name == CARROT
 		or itemData.name == POTATO
 end
 
 function farmTile()
-	local tile = turtle.detectDown()
+	local success, tile = turtle.inspectDown()
 
-	if isRipe(tile) then
+	if success and isRipe(tile) then
 		-- Harvest
 		print('Harvesting ', tile.name)
 		turtle.digDown()
+		success, tile = turtle.inspectDown()
 	end
 
-	if tile == nil then
+	if not success then
 		-- Plough
 		print('Ploughing ', tile.name)
 		turtle.digDown()
@@ -121,27 +141,33 @@ end
 
 function deposit()
 	print('Dropping off harvested crops')
-	-- Set aside 1 stack of each seed
+	-- Set aside 4 stacks of seeds
 	-- Drop the remaining items
 	-- Crops go in forward chest
 	-- Seeds go in bottom chest
 
 	-- MVP: Drop all items
-	for i = 0, 16 do
+	local seedCount = 0
+
+	for i = 1, 16 do
 		local item = turtle.getItemDetail(i)
 		if isSeed(item) or isCrop(item) then
-			turtle.select(i)
-			turtle.dropDown()
+			if seedCount > (64*4) then
+				turtle.select(i)
+				turtle.dropDown()
+			end
+			seedCount = seedCount + item.count
 		end
 	end
 end
 
+turtle.suckUp()
+tryRefuel(64)
+
 while true do
 	local distance = iterateField(farmTile)
-	print('End of field. Returning home.')
-	distance = distance + goHome();
 
 	deposit()
 	turtle.suckUp()
-	tryRefuel()
+	tryRefuel(distance)
 end
