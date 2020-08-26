@@ -2,6 +2,7 @@
 -- Watch the block below
 -- If a block is detected, mine it
 -- Drop results above (ideally into a chest)
+-- Works well for cactus and sugarcane
 
 while true do
 	if turtle.detectDown() then
