@@ -17,6 +17,11 @@ landingName = 'minecraft:cobblestone'
 stairName = 'minecraft:stone_stairs'
 columnName = 'minecraft:cobblestone'
 
+args = {...}
+if args[1] then
+	levels = args[1]
+end
+
 function findItem(name)
 	for i = 1, 16 do
 		local data = turtle.getItemDetail(i)
@@ -91,9 +96,10 @@ function buildAllWalls()
 end
 
 function buildTower(height)
+	print('Building a tower with ', height, ' levels')
 	for i = 1, height do
-		print('Level ', i)
 		buildAllWalls()
+		print('Level ', i, ' completed!')
 	end
 end
 
