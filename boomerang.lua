@@ -1,8 +1,10 @@
 -- Boomerang Mining
 -- Mines in a straight line 2 blocks high
+-- It digs ahead and down
 -- Keeps track of its position with dead reckoning
 -- Once it has exactly enough fuel to return to the startpoint it turns around
 -- But first it attempts to refuel and keep going
+-- Once it returns to the startpoint, it drops its contents downward
 
 args = {...}
 
@@ -68,8 +70,10 @@ function goHome()
 	print('Dropping off contents')
 	-- Drop off contents
 	for i = 1, 16 do
-		turtle.select(i)
-		turtle.drop()
+		if turtle.getItemSelectedSlot(i) then
+			turtle.select(i)
+			turtle.dropDown()
+		end
 	end
 	turtle.turnRight()
 	turtle.turnRight()
