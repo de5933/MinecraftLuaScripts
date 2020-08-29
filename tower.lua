@@ -61,6 +61,8 @@ function buildStairs()
 	placeLanding()
 	turtle.turnRight()
 	turtle.forward()
+	turtle.turnRight()
+	turtle.forward()
 end
 
 function buildAllWalls()
