@@ -1,8 +1,10 @@
 
-wallName = 'minecraft:cobblestone'
-landingName = 'minecraft:cobblestone'
-stairName = 'minecraft:cobblestone_stair'
-columnName = 'minecraft:cobblestone'
+COBBLESTONE = 'minecraft:cobblestone'
+COBBLESTONE_STAIR = 'minecraft:stone_stairs'
+wallName = COBBLESTONE
+landingName = COBBLESTONE
+stairName = COBBLESTONE_STAIR
+columnName = COBBLESTONE
 
 function findItem(name)
 	for i = 1, 16 do
