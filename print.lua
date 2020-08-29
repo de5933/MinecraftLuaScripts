@@ -2,7 +2,7 @@ local args = {...}
 
 local file = args[1]
 
-local printer = peripheral.wrap('bottom'
+local printer = peripheral.wrap('bottom')
 local ready = printer.newPage()
 
 if printer.getPaperLevel() == 0 then
