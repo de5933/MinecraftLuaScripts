@@ -60,7 +60,7 @@ function buildAllWalls()
 	buildWall()
 	turtle.turnRight()
 	turtle.up()
-	turtle.placeColumn()
+	placeColumn()
 end
 
 function buildTower(height)
