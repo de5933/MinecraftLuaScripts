@@ -1,0 +1,2 @@
+-- Mine the top layer 
+-- Good for mining obsidion from lava
