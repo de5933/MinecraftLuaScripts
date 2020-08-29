@@ -24,12 +24,12 @@ function placeWall()
 end
 
 function placeStair()
-	turtle.select(findItem(landingName))
+	turtle.select(findItem(stairName))
 	turtle.placeDown()
 end
 
 function placeLanding()
-	turtle.select(findItem(stairName))
+	turtle.select(findItem(landingName))
 	turtle.placeDown()
 end
 
