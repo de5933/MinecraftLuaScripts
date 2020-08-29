@@ -81,6 +81,7 @@ end
 
 function buildTower(height)
 	for i = 0, height do
+		print('Level ', i)
 		buildAllWalls()
 	end
 end
