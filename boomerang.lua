@@ -4,16 +4,27 @@
 -- Once it has exactly enough fuel to return to the startpoint it turns around
 -- But first it attempts to refuel and keep going
 
-position = 0
+args = {...}
 
-function main()
+position = 0
+customRange = false
+
+function main(n)
 	local range = turtle.getFuelLevel()
+	if n and n < range then
+		range = n
+		customRange = true
+	end
+
 	position = 0;
 	
 	while position < range do
+		print('Distance: ', position, '/', range)
 		onward()
-		range = turtle.getFuelLevel()
-		if position >= range then
+		if not customRange then
+			range = turtle.getFuelLevel()
+		end
+		if not customRange and position >= range then
 			print('Fuel at 50%. Attempting to refuel...')
 			if tryRefuel() then
 				print('Refuel successful!')
@@ -54,11 +65,14 @@ function goHome()
 		end
 	end
 	
+	print('Dropping off contents')
 	-- Drop off contents
 	for i = 1, 16 do
 		turtle.select(i)
 		turtle.drop()
 	end
+	turtle.turnRight()
+	turtle.turnRight()
 end
 
 function tryRefuel()
@@ -72,4 +86,4 @@ function tryRefuel()
 	return false
 end
 
-main()
+main(tonumber(args[1]))
