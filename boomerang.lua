@@ -31,12 +31,13 @@ function onward()
 		turtle.digDown()
 	end
 	if turtle.forward() then
-	position = position + 1
+		position = position + 1
 	else
 		print('onward: Unable to move')
 	end
 	if turtle.detect() then
-	turtle.dig()
+		turtle.dig()
+	end
 end
 
 function goHome()
