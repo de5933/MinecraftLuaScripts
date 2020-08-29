@@ -19,6 +19,7 @@ function main()
 				print('Refuel successful!')
 			else
 				print('No more fuel.')
+			end
 			range = turtle.getFuelLevel()
 		end
 	end
