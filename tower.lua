@@ -1,20 +1,29 @@
+-- tower.lua
+-- Builds a 5x5 cylindrical tower
+-- Includes a spiral staircase
+--[[ Cross Section:
+			 WWW 
+			W SLW
+			W C W
+			W   W
+			 WWW 
+--]]
 
-COBBLESTONE = 'minecraft:cobblestone'
-COBBLESTONE_STAIR = 'minecraft:stone_stairs'
-wallName = COBBLESTONE
-landingName = COBBLESTONE
-stairName = COBBLESTONE_STAIR
-columnName = COBBLESTONE
+-- Use these values to customize the blocks
+-- Each level requires 9 walls, 1 landing, 1 stair, and 1 column
+wallName = 'minecraft:cobblestone'
+landingName = 'minecraft:cobblestone'
+stairName = 'minecraft:stone_stairs'
+columnName = 'minecraft:log'
 
 function findItem(name)
 	for i = 1, 16 do
 		local data = turtle.getItemDetail(i)
 		if data ~= nil and data.name == name then
 			return i
-		else
-			print('Could not find item: ', name)
 		end
 	end
+	print('Could not find item: ', name)
 	return nil
 end
 
@@ -25,12 +34,12 @@ end
 
 function placeStair()
 	turtle.select(findItem(stairName))
-	turtle.placeDown()
+	turtle.place()
 end
 
 function placeLanding()
 	turtle.select(findItem(landingName))
-	turtle.placeDown()
+	turtle.place()
 end
 
 function placeColumn()
@@ -53,35 +62,35 @@ function buildWall()
 end
 
 function buildStairs()
-	turtle.turnLeft()
 	turtle.forward()
 	turtle.turnRight()
-	placeStair()
-	turtle.forward()
 	placeLanding()
-	turtle.turnRight()
-	turtle.forward()
-	turtle.turnRight()
-	turtle.forward()
+	turtle.back()
+	placeStair()
 	turtle.turnLeft()
+	turtle.back()
+	turtle.turnLeft()
+	turtle.back()
+	turtle.turnRight()
+	turtle.turnRight()
 end
 
 function buildAllWalls()
+	buildWall()
+	turtle.turnRight()
+	buildWall()
+	turtle.turnRight()
+	buildWall()
+	turtle.turnRight()
+	buildWall()
+	turtle.turnRight()
 	buildStairs()
-	buildWall()
-	turtle.turnRight()
-	buildWall()
-	turtle.turnRight()
-	buildWall()
-	turtle.turnRight()
-	buildWall()
-	turtle.turnRight()
 	turtle.up()
 	placeColumn()
 end
 
 function buildTower(height)
-	for i = 0, height do
+	for i = 1, height do
 		print('Level ', i)
 		buildAllWalls()
 	end
