@@ -14,7 +14,7 @@
 wallName = 'minecraft:cobblestone'
 landingName = 'minecraft:cobblestone'
 stairName = 'minecraft:stone_stairs'
-columnName = 'minecraft:log'
+columnName = 'minecraft:cobblestone'
 
 function findItem(name)
 	for i = 1, 16 do
