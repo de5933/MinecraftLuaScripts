@@ -5,7 +5,7 @@
 
 function main(x)
 	for i = 1, x do
-		print('Bend ,' i)
+		print('Bend ', i)
 		bend(i)
 		bend(i)
 	end

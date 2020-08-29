@@ -13,7 +13,7 @@ function main()
 	while position < range do
 		onward()
 		range = turtle.getFuelLevel()
-		if position < range then
+		if position >= range then
 			print('Fuel at 50%. Attempting to refuel...')
 			if tryRefuel() then
 				print('Refuel successful!')
@@ -68,6 +68,7 @@ function tryRefuel()
 			return true
 		end
 	end
+	print('No more fuel.')
 	return false
 end
 
