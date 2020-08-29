@@ -13,6 +13,10 @@ end
 
 function bend(distance)
 	local x = 0
+	if turtle.detectDown() then
+		turtle.digDown()
+	end
+	
 	turtle.turnRight()
 	while x < distance do
 		if turtle.detect() then
