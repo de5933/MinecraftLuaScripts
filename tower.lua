@@ -23,12 +23,12 @@ end
 
 function placeStair()
 	turtle.select(findItem(landingName))
-	turtle.place()
+	turtle.placeDown()
 end
 
 function placeLanding()
 	turtle.select(findItem(stairName))
-	turtle.place()
+	turtle.placeDown()
 end
 
 function placeColumn()
@@ -50,7 +50,19 @@ function buildWall()
 	turtle.back()
 end
 
+function buildStairs()
+	turtle.turnLeft()
+	turtle.forward()
+	turtle.turnRight()
+	placeStair()
+	turtle.forward()
+	placeLanding()
+	turtle.turnRight()
+	turtle.forward()
+end
+
 function buildAllWalls()
+	buildStairs()
 	buildWall()
 	turtle.turnRight()
 	buildWall()
