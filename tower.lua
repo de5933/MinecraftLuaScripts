@@ -11,6 +11,7 @@
 
 -- Use these values to customize the blocks
 -- Each level requires 9 walls, 1 landing, 1 stair, and 1 column
+levels = 4
 wallName = 'minecraft:cobblestone'
 landingName = 'minecraft:cobblestone'
 stairName = 'minecraft:stone_stairs'
@@ -96,4 +97,4 @@ function buildTower(height)
 	end
 end
 
-buildTower(3)
+buildTower(levels)
