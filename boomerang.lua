@@ -41,16 +41,16 @@ function main(n)
 end
 
 function onward()
-	if turtle.detectDown() then
-		turtle.digDown()
+	if turtle.detect() then
+		turtle.dig()
 	end
 	if turtle.forward() then
 		position = position + 1
 	else
 		print('onward: Unable to move')
 	end
-	if turtle.detect() then
-		turtle.dig()
+	if turtle.detectDown() then
+		turtle.digDown()
 	end
 end
 
@@ -70,7 +70,7 @@ function goHome()
 	print('Dropping off contents')
 	-- Drop off contents
 	for i = 1, 16 do
-		if turtle.getItemSelectedSlot(i) then
+		if turtle.getItemCount(i) then
 			turtle.select(i)
 			turtle.dropDown()
 		end
