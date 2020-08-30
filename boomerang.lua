@@ -1,6 +1,6 @@
 -- Boomerang Mining
 -- Mines in a straight line 2 blocks high
--- It digs ahead and down
+-- It digs ahead and up
 -- Keeps track of its position with dead reckoning
 -- Once it has exactly enough fuel to return to the startpoint it turns around
 -- But first it attempts to refuel and keep going
@@ -47,7 +47,7 @@ function onward()
 	if turtle.forward() then
 		position = position + 1
 	else
-		print('onward: Unable to move')
+		print('onward(): Unable to move')
 	end
 	if turtle.detectUp() then
 		turtle.digUp()
@@ -71,10 +71,13 @@ function goHome()
 	turtle.turnRight()
 	
 	while position > 0 do
+		if turtle.detect() then
+			turtle.dig()
+		end
 		if turtle.forward() then
 			position = position - 1
 		else
-			print('goHome: Unable to move')
+			print('goHome(): Unable to move')
 		end
 	end
 
