@@ -49,8 +49,19 @@ function onward()
 	else
 		print('onward: Unable to move')
 	end
-	if turtle.detectDown() then
-		turtle.digDown()
+	if turtle.detectUp() then
+		turtle.digUp()
+	end
+end
+
+function dropAll()
+	print('Dropping off contents')
+	-- Drop off contents
+	for i = 1, 16 do
+		if turtle.getItemCount(i) then
+			turtle.select(i)
+			turtle.dropDown()
+		end
 	end
 end
 
@@ -66,15 +77,7 @@ function goHome()
 			print('goHome: Unable to move')
 		end
 	end
-	
-	print('Dropping off contents')
-	-- Drop off contents
-	for i = 1, 16 do
-		if turtle.getItemCount(i) then
-			turtle.select(i)
-			turtle.dropDown()
-		end
-	end
+
 	turtle.turnRight()
 	turtle.turnRight()
 end
