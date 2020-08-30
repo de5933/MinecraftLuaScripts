@@ -59,7 +59,7 @@ function goHome()
 	turtle.turnRight()
 	turtle.turnRight()
 	
-	while position > 0 do
+	while position >= 0 do
 		if turtle.forward() then
 			position = position - 1
 		else
