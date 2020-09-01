@@ -42,7 +42,7 @@ function printLongReport()
 	local rodCount = reactor.getNumberOfControlRods()
 	print(rodCount .. ' control rods:')
 	for i = 1, rodCount do 
-		print('   ' .. i .. ' ' .. reactor.getControlRodName(i) .. ' ' .. tostring(reactor.getControlRodLevel(i) .. '%')
+		print('   ' .. i .. ' ' .. reactor.getControlRodName(i) .. ' ' .. tostring(reactor.getControlRodLevel(i)) .. '%')
 	end
 end
 
