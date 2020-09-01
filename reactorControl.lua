@@ -15,15 +15,14 @@ REACTOR_POSITION = 'back'
 
 reactor = peripheral.wrap(REACTOR_POSITION)
 
-function printReport()
-
+function printLongReport()
 	local status = 'OFF'
 	if reactor.getActive() then
 		status = 'ON'
 	end
 	print('Status:' .. status)
 
-	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()))
+	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()) .. ' RF/t')
 
 	print('Storage: ' .. tostring(reactor.getEnergyStored()) .. ' RF')
 
@@ -43,8 +42,22 @@ function printReport()
 	local rodCount = reactor.getNumberOfControlRods()
 	print(rodCount .. ' control rods:')
 	for i = 1, rodCount do 
-		print('   ' .. i .. ' ' .. reactor.getControlRodName(i) .. '(' .. tostring(reactor.getControlRodLevel(i) .. ')') .. '%')
+		print('   ' .. i .. ' ' .. reactor.getControlRodName(i) .. ' ' .. tostring(reactor.getControlRodLevel(i) .. '%')
 	end
 end
 
-printReport()
+function printShortReport()
+	local status = 'OFF'
+	if reactor.getActive() then
+		status = 'ON'
+	end
+	print('Status:' .. status)
+	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()))
+	print('Storage: ' .. tostring(reactor.getEnergyStored()) .. ' RF')
+	print('Fuel Temp: ' .. tostring(reactor.getFuelTemperature()) .. ' C')
+	print('Casing Temp: ' .. tostring(reactor.getCasingTemperature()) .. ' C')
+	print('Fuel: ' .. tostring(reactor.getFuelAmount()) .. ' mB')
+	print('Fuel Reactivity: ' .. tostring(reactor.getFuelReactivity()) .. ' %')
+end
+
+printShortReport()
