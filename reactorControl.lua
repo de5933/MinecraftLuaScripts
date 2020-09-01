@@ -51,8 +51,8 @@ function printShortReport()
 	if reactor.getActive() then
 		status = 'ON'
 	end
-	print('Status:' .. status)
-	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()))
+	print('Status: ' .. status)
+	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick() .. ' RF/t'))
 	print('Storage: ' .. tostring(reactor.getEnergyStored()) .. ' RF')
 	print('Fuel Temp: ' .. tostring(reactor.getFuelTemperature()) .. ' C')
 	print('Casing Temp: ' .. tostring(reactor.getCasingTemperature()) .. ' C')
