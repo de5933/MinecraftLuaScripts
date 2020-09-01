@@ -60,4 +60,8 @@ function printShortReport()
 	print('Fuel Reactivity: ' .. tostring(reactor.getFuelReactivity()) .. ' %')
 end
 
-printShortReport()
+while true do
+	term.clear()
+	printShortReport()
+	os.sleep(0.5)
+end
