@@ -21,7 +21,7 @@ function printReport()
 	if reactor.getActive() then
 		status = 'ON'
 	end
-	print('Status: ' .. status)
+	print('Status:' .. status)
 
 	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()))
 
@@ -43,7 +43,7 @@ function printReport()
 	local rodCount = reactor.getNumberOfControlRods()
 	print(rodCount .. ' control rods:')
 	for i = 1, rodCount do
-		print('   ' .. i .. ' : ' .. reactor.getControlRodName(i) .. tostring(reactor.getControlRodLevel(i)) .. '%')
+		print('   ' .. i .. reactor.getControlRodName(i) .. ':' .. tostring(reactor.getControlRodLevel(i)) .. '%')
 	end
 end
 
