@@ -14,3 +14,32 @@ TargetStorage?
 REACTOR_POSITION = 'back'
 
 reactor = peripheral.wrap(REACTOR_POSITION)
+
+function printReport()
+	print('Status: ' .. reactor.getActive())
+
+	print('Output: ' .. reactor.getEnergyProducedLastTick())
+
+	print('Storage: ' .. reactor.getEnergyStored() .. ' RF')
+
+	print('Fuel Temp: ' .. reactor.getFuelTemperature() .. ' C')
+
+	print('Casing Temp: ' .. reactor.getCasingTemperature() .. ' C')
+
+	print('Fuel: ' .. reactor.getFuelAmount() .. ' mB')
+
+	print('Fuel Reactivity: ' .. reactor.getFuelReactivity() .. ' %')
+
+	print('Waste: ' .. reactor.getWasteAmount() .. ' mB')
+
+	print('Max Fuel: ' .. reactor.getFuelAmountMax() .. ' mB')
+
+
+	local rodCount = reactor.getNumberOfControlRods()
+	print(rodCount .. ' control rods:')
+	for i = 1, rodCount do
+		print('   ' .. i .. ' : ' .. reactor.getControlRodLocation(i) .. ':' .. reactor.getControlRodName(i) .. reactor.getControlRodLevel(i) .. '%')
+	end
+end
+
+printReport()
