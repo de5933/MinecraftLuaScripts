@@ -44,10 +44,18 @@ local function get( sUrl )
 	return sResponse
 end
 
+function getFileName(url)
+	local index = url:match'^.*()/'
+	if index and index < #url then
+		return string.sub(url, index)
+	end
+	return url
+end
+
 -- Determine file to download
 local sFile = tArgs[1]
 local sUrl = baseUrl .. '/' .. sFile
-local sPath = shell.resolve( sFile )
+local sPath = getFileName(shell.resolve( sFile ))
 
 -- Do the get
 local res = get( sUrl )
