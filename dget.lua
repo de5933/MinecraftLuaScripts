@@ -1,6 +1,6 @@
-baseUrl = 'https://raw.githubusercontent.com/de5933/MinecraftLuaScripts/master/'
-
 -- Adapted from wget.lua in ComputerCraft (https://github.com/dan200/ComputerCraft)
+
+baseUrl = 'https://raw.githubusercontent.com/de5933/MinecraftLuaScripts/master/'
 
 local function printUsage()
 	print( "Usage:" )
