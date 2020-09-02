@@ -21,21 +21,13 @@ function printLongReport()
 		status = 'ON'
 	end
 	print('Status:' .. status)
-
 	print('Output: ' .. tostring(reactor.getEnergyProducedLastTick()) .. ' RF/t')
-
 	print('Storage: ' .. tostring(reactor.getEnergyStored()) .. ' RF')
-
 	print('Fuel Temp: ' .. tostring(reactor.getFuelTemperature()) .. ' C')
-
 	print('Casing Temp: ' .. tostring(reactor.getCasingTemperature()) .. ' C')
-
 	print('Fuel: ' .. tostring(reactor.getFuelAmount()) .. ' mB')
-
 	print('Fuel Reactivity: ' .. tostring(reactor.getFuelReactivity()) .. ' %')
-
 	print('Waste: ' .. tostring(reactor.getWasteAmount()) .. ' mB')
-
 	print('Max Fuel: ' .. tostring(reactor.getFuelAmountMax()) .. ' mB')
 
 
